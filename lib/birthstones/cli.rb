@@ -16,7 +16,14 @@ class Birthstones::CLI
   def main_menu
     input = nil
     while input != "exit"
-      puts puts "Every month has its own special birthstone. Below is a list of each month's birthstone.\nIf you would like to find out more about a particular birthstone, please enter just the number of month. For example, to view July's birthstone, type '7'."
+      puts "Every month has its own special birthstone. Below is a list of each month's birthstone."
+      puts "If you would like to find out more about a particular birthstone, please enter just the number of month. For example, to view July's birthstone, type '7'."
+      puts "You can always type 'list' to view the list of birthstones by month again."
+      input = gets
+      if input > 0
+
+
+
   end
 
 end
