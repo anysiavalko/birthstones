@@ -1,5 +1,5 @@
 class Birthstones::Stone
-  attr_accessor :name, :month
+  attr_accessor :name, :month, :overview
 
   def self.list
     self.scrape_stones
@@ -12,12 +12,14 @@ class Birthstones::Stone
   end
 
   def self.scrape_gia
-    doc = Nokogiri::HTML(open(""))
+    doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
+    binding.pry
 
+    
     stone = self.new
     stone.name =
     stone.month =
-
+    stone.overview =
     stone
   end
 
