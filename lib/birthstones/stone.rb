@@ -14,9 +14,6 @@ class Birthstones::Stone
 
   def self.scrape_gia
     doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
-    binding.pry
-
-
     stone = self.new
     stone.name = doc.css("div.grey").css("p strong").first.text.capitalize
     stone.month = doc.css("div.grey").css("div.title").first.text
