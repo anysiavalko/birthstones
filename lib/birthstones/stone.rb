@@ -1,6 +1,6 @@
 require 'pry'
 class Birthstones::Stone
-  attr_accessor :name, :month, :overview
+  attr_accessor :name, :month, :overview, :learn_more
 
   def self.list
     self.scrape_stones
@@ -18,10 +18,10 @@ class Birthstones::Stone
 
 
     stone = self.new
-    stone.name =
+    stone.name = doc.css("div.grey").css("p strong").text
     stone.month = doc.css("div.grey").css("div.title").text
-    stone.overview =
-    stone
+    stone.overview = doc.css("div.grey").css("p.facts").text
+    stone.learn_more =
   end
 
 
