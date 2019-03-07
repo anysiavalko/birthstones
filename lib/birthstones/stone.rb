@@ -18,11 +18,11 @@ class Birthstones::Stone
 
 
     stone = self.new
-    stone.name = doc.css("div.grey").css("p strong").text
-    stone.month = doc.css("div.grey").css("div.title").text
-    stone.overview = doc.css("div.grey").css("p.facts").text
+    stone.name = doc.css("div.grey").css("p strong").first.text.capitalize
+    stone.month = doc.css("div.grey").css("div.title").first.text
+    stone.overview = doc.css("div.grey").css("p.facts").first.text
+    stone.learn_more = doc.css("div.col-md-4 a").attr("href").value
   end
-
 
 
 end
