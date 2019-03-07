@@ -1,4 +1,5 @@
 class Birthstones::CLI
+
   def call
     list_birthstones
     main_menu
@@ -20,8 +21,8 @@ class Birthstones::CLI
       puts "If you would like to find out more about a particular birthstone, please enter just the number of month. For example, to view July's birthstone, type '7'."
       puts "You can always type 'list' to view the list of birthstones by month again."
       input = gets
-      if input > 0
-        the_stone = @stones[input-1]
+      if input.to_i > 0
+        the_stone = @stones[input.to_i-1]
         puts "#{the_stone.month}: #{the_stone.name}"
         puts "Overview:\n #{the_stone.overview}"
         puts "To learn more, visit #{the_stone.learn_more}."
