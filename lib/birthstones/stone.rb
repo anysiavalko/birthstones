@@ -21,7 +21,6 @@ class Birthstones::Stone
     stone.name = doc.css("div.grey").css("p strong").text
     stone.month = doc.css("div.grey").css("div.title").text
     stone.overview = doc.css("div.grey").css("p.facts").text
-    stone.learn_more =
   end
 
 
