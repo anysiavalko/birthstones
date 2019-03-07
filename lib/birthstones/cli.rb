@@ -22,7 +22,9 @@ class Birthstones::CLI
       input = gets
       if input > 0
         the_stone = @stones[input-1]
-        #puts scraped information about stone
+        puts "#{the_stone.month}: #{the_stone.name}"
+        puts "Overview:\n #{the_stone.overview}"
+        puts "To learn more, visit #{the_stone.learn_more}."
       elsif input == list
         list_birthstones
       else
