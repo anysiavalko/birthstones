@@ -1,3 +1,4 @@
+require 'pry'
 class Birthstones::Stone
   attr_accessor :name, :month, :overview
 
@@ -15,10 +16,10 @@ class Birthstones::Stone
     doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
     binding.pry
 
-    
+
     stone = self.new
     stone.name =
-    stone.month =
+    stone.month = doc.css("div.grey").css("div.title").text
     stone.overview =
     stone
   end
