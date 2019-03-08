@@ -4,9 +4,13 @@ class Birthstones::Stone
 
   @@all = []
 
-  def self.new_from_gia(url)
+  def self.new_from_gia("https://www.gia.edu/birthstones") # do I need the url here
     stone = self.new
-
+    doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
+    stone.name = doc.css("div.grey").css("p strong").first.text.capitalize
+    stone.month = doc.css("div.grey").css("div.title").first.text
+    stone.overview = doc.css("div.grey").css("p.facts").first.text
+    stone.learn_more = doc.css("div.col-md-4 a").attr("href").value
     stone
   end
 
