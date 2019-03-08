@@ -4,7 +4,7 @@ class Birthstones::Stone
 
   @@all = []
 
-  def self.new_from_gia("https://www.gia.edu/birthstones") # do I need the url here
+  def self.new_from_gia # do I need the url here
     stone = self.new
     doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
     stone.name = doc.css("div.grey").css("p strong").first.text.capitalize
