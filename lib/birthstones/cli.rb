@@ -8,7 +8,7 @@ class Birthstones::CLI
 
   def list_birthstones
     puts "Birthstones by Month:"
-    @stones = Birthstones::Stone.all
+    @stones = Birthstones::Stone.scrape_stones
     @stones.each_with_index do |stone, i|
       puts "#{i + 1}. #{stone.month} - #{stone.name}"
     end
@@ -17,16 +17,16 @@ class Birthstones::CLI
   def main_menu
     input = nil
     while input != "done"
-      puts "Every month has its own special birthstone. Below is a list of each month's birthstone."
+      puts "Every month has its own special birthstone. Above is a list of each month's birthstone."
       puts "If you would like to find out more about a particular birthstone, please enter just the number of month. For example, to view July's birthstone, type '7'."
       puts "You can always type 'list' to view the list of birthstones by month again."
-      input = gets
+      input = gets.strip.downcase
       if input.to_i > 0
         the_stone = @stones[input.to_i-1]
         puts "#{the_stone.month}: #{the_stone.name}"
         puts "Overview:\n #{the_stone.overview}"
         puts "To learn more, visit #{the_stone.learn_more}."
-      elsif input == list
+      elsif input == "list"
         list_birthstones
       else
         puts "Not a valid input. Please type the number of a month, 'list', or 'done'."
