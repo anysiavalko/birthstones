@@ -8,8 +8,8 @@ class Birthstones::CLI
 
   def list_birthstones
     puts "Birthstones by Month:"
-    @stones = Birthstones::Stone.scrape_stones
-    @stones.each_with_index do |stone, i|
+    Birthstones::Stone.get_stones
+    Birthstones::Stone.all.each_with_index do |stone, i|
       puts "#{i + 1}. #{stone.month} - #{stone.name}"
     end
   end
