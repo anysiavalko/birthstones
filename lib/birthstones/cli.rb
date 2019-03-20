@@ -1,3 +1,4 @@
+require 'pry'
 class Birthstones::CLI
 
   def call
@@ -22,10 +23,10 @@ class Birthstones::CLI
       puts "You can always type 'list' to view the list of birthstones by month again."
       input = gets.strip.downcase
       if input.to_i > 0
-        the_stone = @stones[input.to_i-1]
-        puts "#{the_stone.month}: #{the_stone.name}"
-        puts "Overview:\n #{the_stone.overview}"
-        puts "To learn more, visit #{the_stone.learn_more}."
+        stone = Birthstones::Stone.all[input.to_i-1]
+        puts "#{stone.month}: #{stone.name}"
+        puts "Overview:\n #{stone.overview}"
+        puts "To learn more, visit #{stone.learn_more}."
       elsif input == "list"
         list_birthstones
       else

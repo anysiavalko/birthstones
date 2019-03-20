@@ -14,7 +14,6 @@ class Birthstones::Stone
   end
 
 
-
   def self.all
     @@all
   end
