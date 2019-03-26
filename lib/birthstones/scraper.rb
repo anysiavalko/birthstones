@@ -2,14 +2,17 @@ require 'pry'
 
 class Birthstones::Scraper
 
-  def self.new_from_gia
-    doc = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
-    doc.css(".gem-library").each do |gem|
+  def self.scrape_gia
+    website = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
+    section = website.css("div.gem-library").css("div.grey")
+    stones = section.css("div.row")
+    binding.pry
+    section.each do |stone|
       stone = Birthstones::Stone.new
-      stone.name = doc.css("div.grey").css("p strong").first.text.capitalize
-      stone.month = doc.css("div.grey").css("div.title").first.text
-      stone.overview = doc.css("div.grey").css("p.facts").first.text
-      stone.learn_more = doc.css("div.col-md-4 a").attr("href").value
+      stone.name = stones.css("strong").text.capitalize
+      stone.month = stones.css("div.title").text
+      stone.overview = stones.css("p.facts").text
+      stone.learn_more = stones.css("a").attr("href").value
     end
     # Birthstones::Stone.new
   end

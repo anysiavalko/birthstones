@@ -5,7 +5,7 @@ class Birthstones::Stone
   @@all = []
 
   def self.get_stones
-    Birthstones::Scraper.new_from_gia
+    Birthstones::Scraper.scrape_gia
   end
 
 
