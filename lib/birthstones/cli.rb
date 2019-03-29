@@ -10,14 +10,14 @@ class Birthstones::CLI
     puts "Birthstones by Month:"
     Birthstones::Stone.get_stones
     Birthstones::Stone.all.each_with_index do |stone, i|
-      puts "#{i + 1}. #{stone.month} - #{stone.name}"
+      puts "#{i + 1}. #{stone.month} - #{stone.name}."
     end
   end
 
   def list_birthstones
     puts "Birthstones by Month:"
     Birthstones::Stone.all.each_with_index do |stone, i|
-      puts "#{i + 1}. #{stone.month} - #{stone.name}"
+      puts "#{i + 1}. #{stone.month} - #{stone.name}."
     end
   end
 
@@ -30,7 +30,7 @@ class Birthstones::CLI
       input = gets.strip.downcase
       if input.to_i > 0
         stone = Birthstones::Stone.all[input.to_i-1]
-        puts "#{stone.month}: #{stone.name}"
+        puts "#{stone.month}: #{stone.name}."
         puts "Overview:\n #{stone.overview}"
         puts "To learn more, visit #{stone.learn_more}."
       elsif input == "list"
