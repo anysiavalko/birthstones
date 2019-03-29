@@ -4,7 +4,6 @@ class Birthstones::CLI
   def call
     list_birthstones
     main_menu
-    done
   end
 
   def list_birthstones
@@ -29,6 +28,8 @@ class Birthstones::CLI
         puts "To learn more, visit #{stone.learn_more}."
       elsif input == "list"
         list_birthstones
+      elsif input == "done"
+        done
       else
         puts "Not a valid input. Please type the number of a month, 'list', or 'done'."
       end

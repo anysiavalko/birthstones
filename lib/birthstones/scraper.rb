@@ -6,14 +6,13 @@ class Birthstones::Scraper
     website = Nokogiri::HTML(open("https://www.gia.edu/birthstones"))
     section = website.css("div.gem-library").css("div.grey")
     gemstone = section.css("div.row")
-    section.each do |stone|
+    section.each do |gemstone|
       stone = Birthstones::Stone.new
       stone.name = gemstone.css("strong").text.capitalize
       stone.month = gemstone.css("div.title").text
       stone.overview = gemstone.css("p.facts").text
       stone.learn_more = gemstone.css("a").attr("href").value
     end
-    # Birthstones::Stone.new
   end
 
 
