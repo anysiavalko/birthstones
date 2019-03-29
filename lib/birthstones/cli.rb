@@ -12,6 +12,7 @@ class Birthstones::CLI
     Birthstones::Stone.all.each_with_index do |stone, i|
       puts "#{i + 1}. #{stone.month} - #{stone.name}."
     end
+    puts "Every month has its own special birthstone. Above is a list of each month's birthstone."
   end
 
   def list_birthstones
@@ -24,7 +25,6 @@ class Birthstones::CLI
   def main_menu
     input = nil
     while input != "done"
-      puts "Every month has its own special birthstone. Above is a list of each month's birthstone."
       puts "If you would like to find out more about a particular birthstone, please enter just the number of month. For example, to view July's birthstone, type '7'."
       puts "You can always type 'list' to view the list of birthstones by month again."
       input = gets.strip.downcase
