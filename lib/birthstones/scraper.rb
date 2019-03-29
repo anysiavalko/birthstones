@@ -8,7 +8,7 @@ class Birthstones::Scraper
     gemstone = section.css("div.row")
     section.each do |gemstone|
       stone = Birthstones::Stone.new
-      stone.name = gemstone.css("strong").text.capitalize
+      stone.name = gemstone.css("p.description").text
       stone.month = gemstone.css("div.title").text
       stone.overview = gemstone.css("p.facts").text
       stone.learn_more = gemstone.css("a").attr("href").value

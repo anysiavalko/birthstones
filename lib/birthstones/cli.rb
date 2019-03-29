@@ -2,13 +2,20 @@ require 'pry'
 class Birthstones::CLI
 
   def call
-    list_birthstones
+    call_birthstones
     main_menu
+  end
+
+  def call_birthstones
+    puts "Birthstones by Month:"
+    Birthstones::Stone.get_stones
+    Birthstones::Stone.all.each_with_index do |stone, i|
+      puts "#{i + 1}. #{stone.month} - #{stone.name}"
+    end
   end
 
   def list_birthstones
     puts "Birthstones by Month:"
-    Birthstones::Stone.get_stones
     Birthstones::Stone.all.each_with_index do |stone, i|
       puts "#{i + 1}. #{stone.month} - #{stone.name}"
     end
