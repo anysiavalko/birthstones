@@ -1,6 +1,6 @@
 require 'pry'
 class Birthstones::Stone
-  attr_accessor :name, :month, :overview, :learn_more
+  attr_accessor :name, :month, :overview, :learn_more, :nameforapril
 
   @@all = []
 

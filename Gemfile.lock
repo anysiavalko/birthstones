@@ -23,7 +23,6 @@ PLATFORMS
 DEPENDENCIES
   birthstones!
   bundler (~> 2.0)
-  nokogiri
   pry
   rake (~> 10.0)
 

@@ -10,6 +10,7 @@ class Birthstones::Scraper
     section.each do |gemstone|
       stone = Birthstones::Stone.new
       stone.name = gemstone.css("p.description").text
+      stone.nameforapril = gemstone.css("p strong").text
       stone.month = gemstone.css("div.title").text
       stone.overview = gemstone.css("p.facts").text
       stone.learn_more = gemstone.css("a").last.attr("href")
