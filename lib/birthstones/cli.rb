@@ -34,7 +34,7 @@ class Birthstones::CLI
     input = nil
     while input != "done"
       puts "If you would like to find out more about a particular birthstone, please enter just the number of the month. For example, to view July's birthstone, type '7'."
-      puts "You can always type 'list' to view the list of birthstones by month again."
+      puts "You can always type 'list' to view the list of birthstones by month again, or 'done' to exit the program."
       input = gets.strip.downcase
       if input.to_i > 0
         stone = Birthstones::Stone.all[input.to_i-1]
